@@ -1,19 +1,16 @@
 name: CI
 
-on: [push]  # Ejecuta el workflow en cada push
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout código
+      - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Asegura que todos los archivos estén presentes
 
-      - name: Verificar archivos en GitHub Actions
-        run: ls -la  # Lista los archivos en el entorno de GitHub Actions
+      - name: Mostrar archivos en GitHub Actions
+        run: ls -l
 
       - name: Build Docker image
         run: docker build -t mi-app .
